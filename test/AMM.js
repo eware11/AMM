@@ -48,7 +48,7 @@ describe('AMM', () => {
 
     // Deploy AMM
     const AMM = await ethers.getContractFactory('AMM')
-    amm = await AMM.deploy()
+    amm = await AMM.deploy(token1.address, token2.address)
   })
 
   describe('Deployment', () => {
