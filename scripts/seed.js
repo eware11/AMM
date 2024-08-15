@@ -31,7 +31,7 @@ async function main() {
         console.log(`Fetching token and transferring to accounts...\n`)
     )
     // Fetch DAPP Token
-    const dapp = await ethers.getContractAt('Token', config[chainID].dapp.address)
+    const dapp = await ethers.getContractAt(`Token`, config[chainID].dapp.address)
     console.log(`Dapp Token fetched: ${dapp.address}\n`)
 
      // Fetch USD Token
