@@ -8,8 +8,8 @@ const hre = require("hardhat");
 
 async function main() {
   const Token = await hre.ethers.getContractFactory('Token')
-  
-  //Deploy Token 1
+
+  // Deploy Token 1
   let dapp = await Token.deploy('Dapp Token', 'DAPP', '1000000') // 1 million tokens
   await dapp.deployed()
   console.log(`Dapp Token deployed to: ${dapp.address}\n`)
@@ -17,15 +17,15 @@ async function main() {
   // Deploy Token 2
   const usd = await Token.deploy('USD Token', 'USD', '1000000') // 1 million tokens
   await usd.deployed()
-  console.log(`USD Token deployed to: ${usd.address}\n`) 
+  console.log(`USD Token deployed to: ${usd.address}\n`)
 
   // Deploy AMM
-    const AMM = await hre.ethers.getContractFactory('AMM')
-    const amm = await AMM.deploy(dapp.address, usd.address)
+  const AMM = await hre.ethers.getContractFactory('AMM')
+  const amm = await AMM.deploy(dapp.address, usd.address)
 
-    console.log(`AMM contract deployed to: ${amm.address}\n`)
+  console.log(`AMM contract deployed to: ${amm.address}\n`)
 
-  }
+}
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
